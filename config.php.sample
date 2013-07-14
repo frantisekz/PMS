@@ -1,0 +1,7 @@
+<?php
+$server = "";
+$database = "";
+$login = "";
+$pass = "";
+$debug_enabled = "1"; // 1 default, 0 to disable displaying of ALL warning and errors
+?>

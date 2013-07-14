@@ -1,0 +1,53 @@
+/* CSS Document */
+body {text-align: center; background-image: url(../img/bgnoise.png); background-repeat: repeat-xy; color: white !important;}
+body a {text-decoration: none;}
+div.body {clear:both; width: 960px; min-height: 600px; 
+background-color: #FFFFFF; margin: auto; -moz-border-radius: 15px; border-radius: 15px; margin-bottom: 15px; color: black;}
+div.body a {color: black;}
+div.content {padding: 10px 10px 10px 10px; overflow: auto;}
+div.break {height: 25px;}
+div.tpanel{
+position: fixed;
+width: 100%;
+z-index: 10;
+}
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: url('../img/scroll.png') no-repeat;
+}
+.scrollbot{
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    top:50px;
+    right:100px;
+    text-indent:-9999px;
+    background: url('../img/scrollbot.png') no-repeat;
+}
+/* Some nice tweaks for Webkit */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #FFF;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: #CCC;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #AAA;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #888;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+}
