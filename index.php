@@ -1,5 +1,4 @@
 <?php
-$debug_enabled = "1"; // Assume debug enabled if config.php isn't present
 $menu = array();
 include_once('config.php');
 $page = $_GET['page'] . ".php";
@@ -32,13 +31,27 @@ echo $pms_zopim;}
 ?>
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+<!-- Let IE 8 support html5 -->
+<!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
 <div class="tpanel">
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Brand</a>
+  </div>
     <div class="navbar">
-    <div class="navbar-inner">
-    <ul class="nav">
+    <ul class="nav navbar-nav">
 	<?php
 foreach($menu as $value) {
   echo "<li "; if($_GET['page'] == preg_replace('/\s+/', '', strtolower($value))){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"index.php?page=" . preg_replace('/\s+/', '', strtolower($value)) . "\">" . $value . "</a></li>";
@@ -46,7 +59,8 @@ foreach($menu as $value) {
 	?>
     </ul>
     </div>
-    </div>
+</div>
+</nav>
 </div>
 <div class="break"></div><div class="break"></div>
 <img src="img/featured-image.png">
@@ -92,7 +106,7 @@ if ($debug_enabled == 1)
 <a href="#" class="scrollup">Scroll up</a> 
 </div>
 <!-- Javascript at the end of file -->
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
