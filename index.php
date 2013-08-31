@@ -1,7 +1,7 @@
 <?php
-$debug_enabled = "1"; // Debug enabled if config.php isn't present
+$debug_enabled = "1"; // Assume debug enabled if config.php isn't present
+$menu = array();
 include_once('config.php');
-include_once('functions.php');
 $page = $_GET['page'] . ".php";
 $pagename = $_GET['page'];
 if ($debug_enabled == 0)
@@ -15,26 +15,20 @@ else
   $time = $time[1] + $time[0];
   $start = $time;
   }
-$con = mysqli_connect($server,$login,$pass);
-if ((!$con) && ($pagename != "install"))
-  {
-  echo "<strong>There is a problem with database, please check config.php or run <a href=\"index.php?page=install\">install</a>...</strong><br/>";
-  }
-mysqli_query($con, "USE $database");
-mysqli_query($con, "SET CHARACTER SET utf8");
 ?>
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="img/favicon.gif" />
 <?php
-echo "<meta author=\"" . pms_pageauthor() . "\">\n";
-echo "<title>" . pms_pagetitle() . "</title>\n";
-if (pms_robots() == 0)
+echo "<meta author=\"" . $pms_pageauthor . "\">\n";
+echo "<title>" . $pms_pagetitle . "</title>\n";
+if ($pms_robots == 0)
   {
   echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
   }
-echo pms_zopim();
+if ($pms_zopim != 0){
+echo $pms_zopim;}
 ?>
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -46,14 +40,9 @@ echo pms_zopim();
     <div class="navbar-inner">
     <ul class="nav">
 	<?php
-$menu = mysqli_query($con, "SELECT * FROM menu");
-	if(!$menu) {
-	// Nothing found?
+foreach($menu as $value) {
+  echo "<li "; if($_GET['page'] == preg_replace('/\s+/', '', strtolower($value))){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"index.php?page=" . preg_replace('/\s+/', '', strtolower($value)) . "\">" . $value . "</a></li>";
 }
-	while($row = mysqli_fetch_array($menu))
-	{
-	echo "<li "; if($_GET['stranka'] == $row['id']){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"" . $row['link'] . "\">" . $row['name'] . "</a></li>";
-	}
 	?>
     </ul>
     </div>
@@ -64,6 +53,7 @@ $menu = mysqli_query($con, "SELECT * FROM menu");
 <div class="break"></div>
 <a href="#" class="scrollbot">Scroll down</a> 
 <div class="body">
+<div class="padfix">
 <?php
 if ($_GET['error'] == 404)
   {
@@ -75,35 +65,19 @@ if ($_GET['error'] == 403)
   }
 elseif(isset($_GET['page']))
   {
-  if($pagename == "install")
-  {
-  include('install.php');
-  }
-  else
-  {
-  echo pms_page_content();
-  }
+  include("page-" . $page);
   }
 ?>
 </div>
-<div class="paticka">
+</div>
+<div class="footer">
 <?php
-$google_plus = mysqli_query($con, "SELECT * FROM config WHERE name LIKE 'google_plus'");
-$row = mysqli_fetch_array($google_plus);
-if ($row['value'] != "0")
-  {echo "<a href=\"" . $row['value'] . "\" target=\"_blank\"><img src=\"../img/gp.png\" alt=\"Google_Plus_Icon\"></a> ";}
-unset($row);
-$facebook = mysqli_query($con, "SELECT * FROM config WHERE name LIKE 'facebook'");
-$row = mysqli_fetch_array($facebook);
-if ($row['value'] != "0")
-  {echo "<a href=\"" . $row['value'] . "\" target=\"_blank\"><img src=\"../img/fb.png\" alt=\"Facebook_Icon\"></a> ";}
-unset($row);
-$twitter = mysqli_query($con, "SELECT * FROM config WHERE name LIKE 'twitter'");
-$row = mysqli_fetch_array($twitter);
-if ($row['value'] != "0")
-  {echo "<a href=\"" . $row['value'] . "\" target=\"_blank\"><img src=\"../img/twitter.png\" alt=\"Twitter_Icon\"></a> ";}
-unset($row);
-mysqli_close($con);
+if ($google_plus != "0")
+  {echo "<a href=\"" . $google_plus . "\" target=\"_blank\"><img src=\"../img/gp.png\" alt=\"Google_Plus_Icon\"></a> ";}
+if ($facebook != "0")
+  {echo "<a href=\"" . $facebook . "\" target=\"_blank\"><img src=\"../img/fb.png\" alt=\"Facebook_Icon\"></a> ";}
+if ($twitter != "0")
+  {echo "<a href=\"" . $twitter . "\" target=\"_blank\"><img src=\"../img/twitter.png\" alt=\"Twitter_Icon\"></a> ";}
 if ($debug_enabled == 1)
   {
   $time = microtime();

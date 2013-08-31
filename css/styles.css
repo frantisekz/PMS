@@ -3,6 +3,8 @@ body {text-align: center; background-image: url(../img/bgnoise.png); background-
 body a {text-decoration: none;}
 div.body {clear:both; width: 960px; min-height: 600px; 
 background-color: #FFFFFF; margin: auto; -moz-border-radius: 15px; border-radius: 15px; margin-bottom: 15px; color: black;}
+div.padfix {padding-left: 10px;
+padding-right: 10px;}
 div.body a {color: black;}
 div.content {padding: 10px 10px 10px 10px; overflow: auto;}
 div.break {height: 25px;}
