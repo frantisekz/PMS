@@ -1,7 +1,6 @@
 <?php
 include('config.php');
 include('functions.php');
-$menu = array();
 $page = $_GET['page'] . ".php";
 $theme_path = "themes/" . $theme . "/";
 $pagename = $_GET['page'];
