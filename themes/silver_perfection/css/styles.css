@@ -24,16 +24,6 @@ z-index: 10;
     text-indent:-9999px;
     background: url('../img/scroll.png') no-repeat;
 }
-.scrollbot{
-    width:40px;
-    height:40px;
-    opacity:0.3;
-    position:fixed;
-    top:50px;
-    right:100px;
-    text-indent:-9999px;
-    background: url('../img/scrollbot.png') no-repeat;
-}
 /* Some nice tweaks for Webkit */
 ::-webkit-scrollbar {
     width: 10px;
