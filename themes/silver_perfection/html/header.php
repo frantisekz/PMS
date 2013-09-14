@@ -40,5 +40,4 @@ get_menu();
     </div>
 </nav>
 </header>
-<div class="break"></div><div class="break"></div>
-<img src="img/featured-image.png">
+<div class="break"></div>

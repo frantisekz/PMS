@@ -7,22 +7,14 @@ div.padfix {padding-left: 10px;
 padding-right: 10px;}
 div.body a {color: black;}
 div.content {padding: 10px 10px 10px 10px; overflow: auto;}
-div.break {height: 25px;}
+div.break {height: 50px;}
 div.tpanel{
 position: fixed;
 width: 100%;
 z-index: 10;
 }
-.scrollup{
-    width:40px;
-    height:40px;
-    opacity:0.3;
-    position:fixed;
-    bottom:50px;
-    right:100px;
-    display:none;
-    text-indent:-9999px;
-    background: url('../img/scroll.png') no-repeat;
+.navbar{
+margin-bottom: 0px !important; 
 }
 /* Some nice tweaks for Webkit */
 ::-webkit-scrollbar {
