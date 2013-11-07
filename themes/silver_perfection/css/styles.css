@@ -2,7 +2,7 @@
 body {text-align: center; background-image: url(../img/bgnoise.png); background-repeat: repeat-xy; color: white !important;}
 body a {text-decoration: none;}
 div.body {clear:both; width: 960px; min-height: 600px; 
-background-color: #FFFFFF; margin: auto; -moz-border-radius: 15px; border-radius: 15px; margin-bottom: 15px; color: black;}
+background-color: #FFFFFF; margin: auto; -moz-border-radius: 15px; border-radius: 15px; margin-bottom: 15px; color: black !important;}
 div.padfix {padding-left: 10px;
 padding-right: 10px;}
 div.body a {color: black;}
@@ -15,6 +15,17 @@ z-index: 10;
 }
 .navbar{
 margin-bottom: 0px !important; 
+}
+.scrollup {
+	display:none;
+	text-decoration:none;
+	position:fixed;
+	bottom:10px;
+	right:10px;
+	overflow:hidden;
+	width: 40px;
+	height: 40px;
+	
 }
 /* Some nice tweaks for Webkit */
 ::-webkit-scrollbar {
