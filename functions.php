@@ -13,7 +13,15 @@ function get_page()
  		}
 	elseif(isset($_GET['page']))
 		{
-	  include("page-" . $page);
+		include("page-" . $page);
+		}
+	}
+function get_menu()
+	{
+	global $menu;
+	foreach($menu as $value) 
+		{
+		echo "<li "; if($_GET['page'] == preg_replace('/\s+/', '', strtolower($value))){echo "class=\"active\"";} if ((preg_replace('/\s+/', '', strtolower($value))) == "home"){echo "><a class=\"effect\" href=\"" . $pms_domain . "/\">" . $value . "</a></li>";} else {echo "><a class=\"effect\" href=\"" . $pms_domain . "/index.php?page=" . preg_replace('/\s+/', '', strtolower($value)) . "\">" . $value . "</a></li>";}
 		}
 	}
 function get_social()
@@ -33,13 +41,5 @@ function get_social()
 		{
 		echo "<a href=\"" . $twitter . "\" target=\"_blank\"><img src=\"../img/twitter.png\" alt=\"Twitter_Icon\"></a> "
 		;}
-	}
-function get_menu()
-	{
-	global $menu;
-	foreach($menu as $value) 
-		{
-		echo "<li "; if($_GET['page'] == preg_replace('/\s+/', '', strtolower($value))){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"index.php?page=" . preg_replace('/\s+/', '', strtolower($value)) . "\">" . $value . "</a></li>";
-		}
 	}
 ?>
