@@ -4,18 +4,20 @@
 <link rel="shortcut icon" href="img/favicon.gif" />
 <?php
 echo "<meta author=\"" . $pms_pageauthor . "\">\n";
+echo "<meta description=\"" . $pms_description . "\">\n";
+echo "<meta keywords=\"" . $pms_keywords . "\">\n";
 echo "<title>" . $pms_pagetitle . "</title>\n";
 if ($pms_robots == 0)
   {
   echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
   }
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo $theme_path . "css/styles.css"; ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo $theme_path . "css/bootstrap.css"; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/bootstrap.css"; ?>" />
 <!-- Let IE 8 support html5 -->
 <!--[if lt IE 9]>
-      <script src="<?php echo $theme_path . "js/html5shiv.js"; ?>" /></script>
-      <script src="<?php echo $theme_path . "js/respond.min.js"; ?>" /></script>
+      <script src="<?php echo "themes/" . $pms_theme . "/js/html5shiv.js"; ?>" /></script>
+      <script src="<?php echo "themes/" . $pms_theme . "/js/respond.min.js"; ?>" /></script>
 <![endif]-->
 </head>
 <body>
@@ -33,10 +35,13 @@ if ($pms_robots == 0)
     <div class="navbar">
     <ul class="nav navbar-nav">
 	<?php
-get_menu();
+	    pms_get_menu();
 	?>
     </ul>
     </div>
 </nav>
 </header>
-<div class="break"></div>
+<div class="header">
+<h1><?php echo $pms_pagetitle; ?></h1>
+<h2><?php echo $pms_description; ?></h2>
+</div>
