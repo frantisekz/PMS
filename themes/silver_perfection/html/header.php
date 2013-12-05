@@ -43,5 +43,5 @@ if ($pms_robots == 0)
 </header>
 <div class="header">
 <h1><?php echo $pms_pagetitle; ?></h1>
-<h2><?php echo $pms_description; ?></h2>
+<h2 class="head"><?php echo $pms_description; ?></h2>
 </div>
