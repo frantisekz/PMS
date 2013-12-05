@@ -3,6 +3,13 @@ body {text-align: center; background-color: rgb(255, 255, 255); background-repea
 body a {text-decoration: none;}
 div.body {clear:both; width: 960px; min-height: 600px; 
 background-color: #FFFFFF; margin: auto; border-radius: 15px; margin-bottom: 15px; color: black !important;}
+h1.head {display: block;
+margin: 0px auto;
+max-width: 1080px;
+padding: 0px 20px;
+text-decoration: none;
+font-size: 35px !important;
+width: 100%;}
 h2.head {color: rgb(20, 20, 18);
 display: block;
 margin: 0px auto;
@@ -21,7 +28,7 @@ div.header {width: 100%;
 min-height: 300px;
 text-align: left;
 padding-left: 10px;
-padding-top: 50px;
+padding-top: 75px;
 background: url("../img/circle.png") no-repeat scroll center top / 1600px auto transparent;}
 .navbar{margin-bottom: 0px !important;}
 .scrollup {
