@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<link rel="shortcut icon" href="img/favicon.gif" />
+<link rel="shortcut icon" href="http://<?php echo $pms_domain;?>/favicon.gif" />
 <meta name="author" content="<?php echo $pms_pageauthor;?>">
 <meta name="keywords" content="<?php echo $pms_keywords;?>">
 <meta name="description" content="<?php echo $pms_description;?>">
