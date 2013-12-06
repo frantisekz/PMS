@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link rel="shortcut icon" href="img/favicon.gif" />
+<meta name="author" content="<?php echo $pms_pageauthor;?>">
+<meta name="keywords" content="<?php echo $pms_keywords;?>">
+<meta name="description" content="<?php echo $pms_description;?>">
+<title><?php echo $pms_pagetitle;?></title>
 <?php
-echo "<meta author=\"" . $pms_pageauthor . "\">\n";
-echo "<meta description=\"" . $pms_description . "\">\n";
-echo "<meta keywords=\"" . $pms_keywords . "\">\n";
-echo "<title>" . $pms_pagetitle . "</title>\n";
 if ($pms_robots == 0)
   {
   echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
   }
 ?>
-<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/bootstrap.css"; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/bootstrap.css"; ?>">
 <!-- Let IE 8 support html5 -->
 <!--[if lt IE 9]>
-      <script src="<?php echo "themes/" . $pms_theme . "/js/html5shiv.js"; ?>" /></script>
-      <script src="<?php echo "themes/" . $pms_theme . "/js/respond.min.js"; ?>" /></script>
+      <script src="<?php echo "themes/" . $pms_theme . "/js/html5shiv.js"; ?>"></script>
+      <script src="<?php echo "themes/" . $pms_theme . "/js/respond.min.js"; ?>"></script>
 <![endif]-->
 </head>
 <body>

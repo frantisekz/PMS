@@ -1,4 +1,4 @@
-<a href="#" class="scrollup"><img src="<?php echo "themes/" . $pms_theme; ?>/img/scroll.png"></a>
+<a href="#" class="scrollup"><img src="<?php echo "themes/" . $pms_theme; ?>/img/scroll.png" alt="ScrollUp"></a>
 <div class="footer">
 <br/>
 <?php
@@ -11,8 +11,8 @@ if ($pms_twitter != "0")
   ?>
   </div>
 <!-- Javascript at the end of file -->
-<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/jquery-1.10.2.min.js"; ?>" /></script>
-<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/bootstrap-dropdown.js"; ?>" /></script>
+<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/jquery-1.10.2.min.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/bootstrap-dropdown.js"; ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 $(window).scroll(function(){
