@@ -3,6 +3,8 @@
 function pms_get_page()
 	{
 	global $page;
+	if (isset($_GET['error']))
+	{
 	if ($_GET['error'] == 404)
 		{
 		echo "Reguested file not found. <br />";
@@ -11,17 +13,25 @@ function pms_get_page()
 		{
  		echo "You aren´t allowed to visit this page. <br />";
  		}
+ 	}
 	elseif(isset($_GET['page']))
 		{
-		include("page-" . $page);
+		include("pages/" . $page);
 		}
 	}
 function pms_get_menu()
 	{
-	global $menu;
-	foreach($menu as $value) 
+	global $pms_domain;
+	$pages = array_diff(scandir("pages/"), array('..', '.'));
+	// array_diff puts out "." and ".." on Linux
+	foreach($pages as $value) 
 		{
-		echo "<li "; if($_GET['page'] == preg_replace('/\s+/', '', strtolower($value))){echo "class=\"active\"";} if ((preg_replace('/\s+/', '', strtolower($value))) == "home"){echo "><a class=\"effect\" href=\"" . $pms_domain . "/\">" . $value . "</a></li>";} else {echo "><a class=\"effect\" href=\"" . $pms_domain . "/index.php?page=" . preg_replace('/\s+/', '', strtolower($value)) . "\">" . $value . "</a></li>";}
+		$value = str_replace(".php", "", $value);
+		$value[0] = strtoupper($value[0]);
+		$value_low = preg_replace('/\s+/', '', strtolower($value));
+		echo "<li "; if($_GET['page'] == $value_low){echo "class=\"active\"";} 
+		if ($value_low == "home"){echo "><a class=\"effect\" href=\"" . $pms_domain . "/\">" . $value . "</a></li>";} 
+		else {echo "><a class=\"effect\" href=\"" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
 		}
 	}
 ?>

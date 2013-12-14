@@ -2,7 +2,7 @@
 include('config.php');
 include('functions.php');
 $page = $_GET['page'] . ".php";
-$theme_path = "themes/" . $theme . "/";
+$theme_path = "themes/" . $pms_theme . "/";
 $pagename = $_GET['page'];
 if ($pms_debug_enabled == 0)
   {

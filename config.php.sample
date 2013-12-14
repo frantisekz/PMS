@@ -19,14 +19,4 @@ $pms_theme = "silver_perfection"; // silver_perfection is the default one
 
 // Plug-ins
 // It'll take some time to do this stuff
-
-// Pages
-/* Continue to add your pages, don't forget to upload proper file for each page, eg. page-test.php , 
-page-home.php... All space chars are removed from file and all characters are automatically 
-converted to lower-case
-*/
-$menu = array(
-"Home",
-"Test"
-);
 ?>
