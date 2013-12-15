@@ -1,4 +1,4 @@
-<a href="#" class="scrollup"><img src="<?php echo "themes/" . $pms_theme; ?>/img/scroll.png" alt="ScrollUp"></a>
+<a href="#" class="scrollup" onfocus="if(this.blur)this.blur()"><img src="<?php echo "themes/" . $pms_theme; ?>/img/scroll.png" alt="ScrollUp"></a>
 <div class="footer">
 <br/>
 <?php

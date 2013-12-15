@@ -1,37 +1,53 @@
 /* CSS Document */
+body, html {height: 100%;}
 body {text-align: center; background-color: rgb(255, 255, 255); background-repeat: repeat-xy; color: white;}
 body a {text-decoration: none;}
-div.body {clear:both; width: 960px; min-height: 600px; 
-background-color: #FFFFFF; margin: auto; border-radius: 15px; margin-bottom: 15px; color: black;}
-h1.head {display: block;
+div.body {
+clear:both;
+position: relative;
+width: 960px;
+height: 100%;
+background-color: #FFFFFF;
+margin: auto;
+border-radius: 15px;
+margin-bottom: 100px;
+padding-left: 10px;
+padding-right: 10px;
+color: black;
+}
+div.body a {color: black;}
+h1.head {
+display: block;
 margin: 0px auto;
 max-width: 1080px;
 padding: 0px 20px;
 text-decoration: none;
 font-size: 35px;
-width: 100%;}
-h2.head {color: rgb(20, 20, 18);
+width: 100%;
+}
+h2.head {
+color: rgb(20, 20, 18);
 display: block;
 margin: 0px auto;
 max-width: 1080px;
 padding: 0px 20px;
 text-decoration: none;
 font-size: 25px;
-width: 100%;}
-div.body {padding-left: 10px; padding-right: 10px;}
-div.body a {color: black;}
+width: 100%;
+}
 div.navbar {margin-bottom: 0px; max-width: 1600px; margin: auto;}
 nav.navbar.navbar-default {border-radius: 0px; border: 0px; margin: auto;}
-div.header {width: 100%;
+div.header {
+width: 100%;
 min-height: 300px;
 text-align: left;
 padding-left: 10px;
 padding-top: 75px;
-background: url("../img/circle.png") no-repeat scroll center top / 1600px auto transparent;}
+background: url("../img/circle.png") no-repeat scroll center top / 1600px auto transparent;
+}
 div.content {padding: 10px 10px 10px 10px; overflow: auto;}
-div.break {height: 50px;}
 div.tpanel {position: fixed; width: 100%; z-index: 10;}
-div.footer {background-color: rgb(0, 0, 0); height: 100px;}
+div.footer {background-color: rgb(0, 0, 0); height: 100px; width: 100%;}
 .scrollup {
 	display:none;
 	text-decoration:none;
@@ -41,5 +57,4 @@ div.footer {background-color: rgb(0, 0, 0); height: 100px;}
 	overflow:hidden;
 	width: 40px;
 	height: 40px;
-	
 }
