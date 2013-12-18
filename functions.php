@@ -30,8 +30,8 @@ function pms_get_menu()
 		$value[0] = strtoupper($value[0]);
 		$value_low = preg_replace('/\s+/', '', strtolower($value));
 		echo "<li "; if($_GET['page'] == $value_low){echo "class=\"active\"";} 
-		if ($value_low == "home"){echo "><a class=\"effect\" href=\"" . $pms_domain . "/\">" . $value . "</a></li>";} 
-		else {echo "><a class=\"effect\" href=\"" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
+		if ($value_low == "home"){echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/\">" . $value . "</a></li>";} 
+		else {echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
 		}
 	}
 ?>
