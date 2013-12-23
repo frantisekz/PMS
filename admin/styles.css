@@ -1,0 +1,19 @@
+div.loginbox{
+height: 100px;
+width: 300px;
+background-color: rgb(231, 231, 231);
+border-radius: 15px;
+margin: auto;
+text-align: center;	
+}
+div.admin{
+min-height: 400px;
+width: 960px;
+background-color: rgb(231, 231, 231);
+border-radius: 15px;
+margin: auto;
+}
+div.padfix{
+padding-left: 10px;
+padding-right: 10px;
+}
