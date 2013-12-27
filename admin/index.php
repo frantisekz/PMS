@@ -1,11 +1,14 @@
 <?php
+session_start();
 include('../config.php');
 if ((isset($_POST['pass'])) AND ($_POST['pass'] == $pms_password))
 {
 setcookie("admin", $pms_pageauthor, time()+3600, $pms_domain);
+$_SESSION['pass'] = $_POST['pass'];
 }
 if (isset($_GET['logout']))
 	{
+	unset($_SESSION['pass']);
 	setcookie("admin", "", time()-3600);
 	}
 function pms_get_loginbox()
@@ -43,47 +46,19 @@ echo "<title>" . $pms_pagetitle . " - Administration</title>\n";
 </head>
 <body>
 <?php
+if ((isset($_GET['refresh'])) AND (isset($_POST['pass'])) AND ($_POST['pass'] != $pms_password) AND (isset($_POST['submitlin'])))
+	{
+	echo "<strong>Login failed!!!</strong><br/>";
+	}
 if (isset($_GET['refresh']))
 	{
 	echo "<strong>Stand by...</strong> If you won't be redirected within 5 seconds press <a href=\"http://" . $pms_domain . "/admin/index.php\">here</a>.";
 	}
-if ((isset($_COOKIE["admin"])) AND !(isset($_GET['refresh']))) {
-?>
-<div class="admin">
-<div class="padfix">
-<strong>Welcome back ;)</strong><br/>
-<a href="index.php?logout&refresh">Logout</a><br/>
-<h2>Settings:</h2>
-<?php
-echo "Page author: " . $pms_pageauthor . "<br/>";
-echo "Page title: " . $pms_pagetitle . "<br/>";
-echo "Page domain: " . $pms_domain . "<br/>";
-echo "Google+ url is set to: "; if($pms_google_plus == "0"){echo "Disabled<br/>";} else {echo "<a href=\"" . $pms_google_plus . "\">" . $pms_google_plus . "</a><br/>";}
-echo "Facebook url is set to: "; if($pms_facebook == "0"){echo "Disabled<br/>";} else {echo "<a href=\"" . $pms_facebook . "\">" . $pms_facebook . "</a><br/>";}
-echo "Twitter url is set to: "; if($pms_twitter == "0"){echo "Disabled<br/>";} else {echo "<a href=\"" . $pms_twitter . "\">" . $pms_twitter . "</a><br/>";}
-if ($pms_robots == 1){echo "Robots are allowed to access this page!<br/>";} else{echo "Robots are not allowed to access this page!<br/>";}
-if ($pms_debug_enabled == 1){echo "Debug mode is on!<br/>";} else{echo "Debug mode is off!<br/>";}
-echo "<h2>Active pages:</h2>";
-foreach(pms_get_pages() as $value) 
-		{
-		$value = str_replace(".php", "", $value);
-		$value[0] = strtoupper($value[0]);
-		echo $value . "<br/>";
-		}
-?>
-</div>
-</div>
-<?php
+if ((isset($_COOKIE["admin"])) AND (!isset($_GET['refresh'])) AND ($_SESSION['pass'] == $pms_password)) {
+include('inner_admin.php');
 }
-else 
+elseif (!isset($_GET['refresh']))
 	{
-	pms_get_loginbox();
-	}
-if ((isset($_POST['pass'])) AND ($_POST['pass'] != $pms_password) AND (isset($_POST['submitlin'])))
-	{
-	?>
-	<strong>Login failed!!!</strong>
-	<?php
 	pms_get_loginbox();
 	}
 ?>
