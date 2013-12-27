@@ -1,0 +1,4 @@
+DirectoryIndex index.php?page=home
+# error page handling
+ErrorDocument 403 /index.php?error=403
+ErrorDocument 404 /index.php?error=404
