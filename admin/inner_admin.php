@@ -22,6 +22,18 @@ foreach(pms_get_pages() as $value)
 		$value[0] = strtoupper($value[0]);
 		echo $value . "<br/>";
 		}
+echo "<h2>Stats:</h2>";
+
+echo "<h2>Messages:</h2>";
+
+$file = file("msg.txt"); 
+foreach($file as $line) 
+{ $element=explode("+++",$line); 
+echo wordwrap($element[0], 80, " ",1) . "<br/>";
+echo wordwrap($element[1], 80, " ",1) . "<br/>";
+echo "<br/><br/>";
+}
+
 ?>
 </div>
 </div>

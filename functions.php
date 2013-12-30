@@ -19,7 +19,7 @@ function pms_get_page()
 		include("pages/" . $page);
 		}
 	}
-function pms_get_menu()
+function pms_get_menu() //Obsolete
 	{
 	global $pms_domain;
 	$pages = array_diff(scandir("pages/"), array('..', '.'));
@@ -34,4 +34,39 @@ function pms_get_menu()
 		else {echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
 		}
 	}
+/*function pms_get_pages()
+	{
+	TODO!
+	}
+*/
+function pms_contact_write($mail, $text)
+{
+  $mail = htmlspecialchars($mail);
+  $mail = str_replace("+++", "", $mail);
+  $text = nl2br(htmlspecialchars($text));
+  $text = str_replace("+++", "", $text);
+  $i = 0;
+  $check = 0;
+  foreach ($text as $text[$i])
+  	{
+  	if ($text[$i] == "+")
+  		{
+  		$check++;
+  		}
+  	$i++;
+  	}
+if ($check >= 3)
+	{
+	return 0;
+	}
+else
+  	{
+  	$fp = fopen("admin/msg.txt", "a");
+  	$write = $mail . "+++" . $text . "+++" . time() . "\n";
+	if (fwrite($fp, $write))
+	{return 1;}
+	else {return 0;}
+	fclose($fp);
+	}
+}
 ?>
