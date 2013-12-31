@@ -22,6 +22,7 @@ function pms_get_page()
 function pms_get_menu() //Obsolete
 	{
 	global $pms_domain;
+	global $pagename;
 	$pages = array_diff(scandir("pages/"), array('..', '.'));
 	// array_diff puts out "." and ".." on Linux
 	foreach($pages as $value) 
@@ -29,7 +30,7 @@ function pms_get_menu() //Obsolete
 		$value = str_replace(".php", "", $value);
 		$value[0] = strtoupper($value[0]);
 		$value_low = preg_replace('/\s+/', '', strtolower($value));
-		echo "<li "; if($_GET['page'] == $value_low){echo "class=\"active\"";} 
+		echo "<li "; if($pagename == $value_low){echo "class=\"active\"";} 
 		if ($value_low == "home"){echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/\">" . $value . "</a></li>";} 
 		else {echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
 		}
@@ -39,6 +40,20 @@ function pms_get_menu() //Obsolete
 	TODO!
 	}
 */
+function pms_viewcount()
+	{
+	if (!isset($_SESSION['count']))
+		{
+		$fp = fopen("count.txt", "r");
+		$count = fgets($fp, 200);
+		fclose($fp);
+		$count = $count + 1;
+		$fp = fopen("count.txt", "w");
+		fwrite($fp, $count);
+		fclose($fp);
+		$_SESSION['count'] = 1;
+		}
+	}
 function pms_contact_write($mail, $text)
 {
   $mail = htmlspecialchars($mail);
@@ -61,7 +76,7 @@ if ($check >= 3)
 	}
 else
   	{
-  	$fp = fopen("admin/msg.txt", "a");
+  	$fp = fopen("msg.txt", "a");
   	$write = $mail . "+++" . $text . "+++" . time() . "\n";
 	if (fwrite($fp, $write))
 	{return 1;}

@@ -14,26 +14,31 @@ if ($pms_robots == 1){echo "Robots are allowed to access this page!<br/>";} else
 if ($pms_debug_enabled == 1){echo "Debug mode is on!<br/>";} else{echo "Debug mode is off!<br/>";}
 echo "<h2>Pages:</h2>";
 echo "";
-$page = $_POST['pname'] . ".php";
-$handle = fopen($page, 'w'); 
+if (isset($_POST['pname']))
+	{
+	$page = $_POST['pname'] . ".php";
+	$handle = fopen($page, 'w'); 
+	}
 foreach(pms_get_pages() as $value) 
-		{
-		$value = str_replace(".php", "", $value);
-		$value[0] = strtoupper($value[0]);
-		echo $value . "<br/>";
-		}
+	{
+	$value = str_replace(".php", "", $value);
+	$value[0] = strtoupper($value[0]);
+	echo $value . "<br/>";
+	}
 echo "<h2>Stats:</h2>";
+$fp = fopen("../count.txt", "r");
+$count = fgets($fp, 200);
+fclose($fp);
+echo "Website visited: " . $count . " times.<br/>";
 
 echo "<h2>Messages:</h2>";
-
-$file = file("msg.txt"); 
+$file = file("../msg.txt"); 
 foreach($file as $line) 
 { $element=explode("+++",$line); 
 echo wordwrap($element[0], 80, " ",1) . "<br/>";
 echo wordwrap($element[1], 80, " ",1) . "<br/>";
 echo "<br/><br/>";
 }
-
 ?>
 </div>
 </div>
