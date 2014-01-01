@@ -23,16 +23,16 @@ function pms_get_menu() //Obsolete
 	{
 	global $pms_domain;
 	global $pagename;
-	$pages = array_diff(scandir("pages/"), array('..', '.'));
+	$pages = array_diff(scandir("pages/"), array('..', '.', 'home.php'));
 	// array_diff puts out "." and ".." on Linux
+	echo "<li "; if($pagename == "home"){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/\">Home</a></li>";
 	foreach($pages as $value) 
 		{
 		$value = str_replace(".php", "", $value);
 		$value[0] = strtoupper($value[0]);
 		$value_low = preg_replace('/\s+/', '', strtolower($value));
 		echo "<li "; if($pagename == $value_low){echo "class=\"active\"";} 
-		if ($value_low == "home"){echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/\">" . $value . "</a></li>";} 
-		else {echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";}
+		echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";
 		}
 	}
 /*function pms_get_pages()
