@@ -13,6 +13,11 @@ if (isset($_GET['page']))
 	$page = $_GET['page'] . ".php";
 	$pagename = $_GET['page'];
 	}
+else
+	{
+	$page = "home.php";
+	$pagename = "home";
+	}
 if ($pms_debug_enabled == 0)
 	{
 	error_reporting(0);
