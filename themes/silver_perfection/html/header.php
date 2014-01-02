@@ -14,7 +14,9 @@ if ($pms_robots == 0)
   }
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/bootstrap.css"; ?>">
+pms_jquery_1();
+pms_lightbox();
+pms_bootstrap30();
 <!-- Let IE 8 support html5 -->
 <!--[if lt IE 9]>
       <script src="<?php echo "themes/" . $pms_theme . "/js/html5shiv.js"; ?>"></script>

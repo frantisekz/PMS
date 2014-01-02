@@ -10,9 +10,6 @@ if ($pms_twitter != "0")
   {echo "<a href=\"" . $pms_twitter . "\" target=\"_blank\"><img src=\"themes/" . $pms_theme . "/img/twitter.png\" alt=\"Twitter_Icon\"></a> ";}
   ?>
   </div>
-<!-- Javascript at the end of file -->
-<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/jquery-1.10.2.min.js"; ?>"></script>
-<script type="text/javascript" src="<?php echo "themes/" . $pms_theme . "/js/bootstrap-dropdown.js"; ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 $(window).scroll(function(){
