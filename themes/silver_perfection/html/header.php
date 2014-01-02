@@ -15,7 +15,7 @@ if ($pms_robots == 0)
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>">
 <?php
-pms_jquery_1();
+pms_jquery1();
 pms_lightbox();
 pms_bootstrap30();
 ?>

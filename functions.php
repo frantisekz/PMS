@@ -1,5 +1,5 @@
 <?php
-function pms_jquery_1()
+function pms_jquery1()
 	{
 	global $pms_domain;
 	$pms_jquery_1 = "/jquery-1.10.2.min.js";
@@ -39,6 +39,10 @@ function pms_get_page()
 	elseif(isset($_GET['page']))
 		{
 		include("pages/" . $page);
+		}
+	else
+		{
+		include("pages/home.php");
 		}
 	}
 function pms_get_menu() //Obsolete
