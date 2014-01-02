@@ -1,12 +1,14 @@
 <?php
 function pms_jquery_1()
 	{
+	global $pms_domain;
 	$pms_jquery_1 = "http://" . $pms_domain . "/jquery-1.10.2.min.js";
 	echo "<script type=\"text/javascript\" src=\"" . $pms_jquery_1 . "\"></script>";
 	$pms_jquery_called = 1;
 	}
 function pms_lightbox()
 	{
+	global $pms_domain;
 	if ($pms_jquery_called != 1)
 		{pms_jquery_1();}
 	$pms_lightbox = "http://" . $pms_domain . "/lightbox";
@@ -15,6 +17,7 @@ echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_lightbox . "/cs
 	}
 function pms_bootstrap30()
 	{
+	global $pms_domain;
 	$pms_bootstrap30 = "http://" . $pms_domain . "/bootstrap/30";
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_bootstrap30 . "/css/bootstrap.css\">";
 	echo "<script type=\"text/javascript\" src=\"" . $pms_bootstrap30 . "/js/bootstrap.min.js\"></script>";
