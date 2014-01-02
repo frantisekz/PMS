@@ -2,25 +2,25 @@
 function pms_jquery_1()
 	{
 	global $pms_domain;
-	$pms_jquery_1 = "http://" . $pms_domain . "/jquery-1.10.2.min.js";
-	echo "<script type=\"text/javascript\" src=\"" . $pms_jquery_1 . "\"></script>";
+	$pms_jquery_1 = "/jquery-1.10.2.min.js";
+	echo "<script type=\"text/javascript\" src=\"" . $pms_jquery_1 . "\"></script>\n";
 	$pms_jquery_called = 1;
 	}
 function pms_lightbox()
 	{
 	global $pms_domain;
-	if ($pms_jquery_called != 1)
+	if ((isset($pms_jquery_called)) AND ($pms_jquery_called != 1))
 		{pms_jquery_1();}
-	$pms_lightbox = "http://" . $pms_domain . "/lightbox";
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_lightbox . "/css/lightbox.css\">";
-	echo "<script type=\"text/javascript\" src=\"" . $pms_lightbox . "/js/lightbox-2.6.min.js\"></script>";
+	$pms_lightbox = "/lightbox/";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_lightbox . "css/lightbox.css\">\n";
+	echo "<script type=\"text/javascript\" src=\"" . $pms_lightbox . "js/lightbox-2.6.min.js\"></script>\n";
 	}
 function pms_bootstrap30()
 	{
 	global $pms_domain;
-	$pms_bootstrap30 = "http://" . $pms_domain . "/bootstrap/30";
-	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_bootstrap30 . "/css/bootstrap.css\">";
-	echo "<script type=\"text/javascript\" src=\"" . $pms_bootstrap30 . "/js/bootstrap.min.js\"></script>";
+	$pms_bootstrap30 = "/bootstrap/30/";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"" . $pms_bootstrap30 . "css/bootstrap.css\">\n";
+	echo "<script type=\"text/javascript\" src=\"" . $pms_bootstrap30 . "js/bootstrap.min.js\"></script>\n";
 	}
 function pms_get_page()
 	{
