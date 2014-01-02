@@ -1,4 +1,10 @@
 <?php
+// Variables
+$pms_bootstrap30 = "http://" . $pms_domain . "/bootstrap/30"; //Bootstrap 3.0 path
+// $pms_bootstrap31 = ""; //Bootstrap 3.1 path
+$pms_jquery_1 = "http://" . $pms_domain . "/jquery-1.10.2.min.js"; //Jquery absolute path
+//$pms_jquery_2 = ""; //Jquery v2 absolute path
+
 // Functions
 function pms_get_page()
 	{
