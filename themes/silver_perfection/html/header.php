@@ -9,9 +9,9 @@
 <title><?php echo $pms_pagetitle;?></title>
 <?php
 if ($pms_robots == 0)
-  {
+{
   echo "<meta name=\"robots\" content=\"noindex,nofollow\">\n";
-  }
+}
 ?>
 <link rel="stylesheet" type="text/css" href="<?php echo "themes/" . $pms_theme . "/css/styles.css"; ?>">
 <?php
@@ -32,9 +32,9 @@ pms_bootstrap30();
   </div>
     <div class="navbar">
     <ul class="nav navbar-nav">
-	<?php
+	   <?php
 	    pms_get_menu();
-	?>
+	   ?>
     </ul>
     </div>
 </nav>
