@@ -3,17 +3,13 @@ body, html {height: 100%;}
 body {text-align: center; background-color: rgb(255, 255, 255); background-repeat: repeat-xy; color: white;}
 body a {text-decoration: none;}
 div.body {
-clear:both;
-position: relative;
 width: 960px;
 height: 100%;
-background-color: #FFFFFF;
 margin: auto;
-border-radius: 15px;
 margin-bottom: 100px;
 padding-left: 10px;
 padding-right: 10px;
-color: black;
+text-align: center;
 }
 div.body a {color: black;}
 h1.head {
