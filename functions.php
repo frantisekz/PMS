@@ -86,28 +86,11 @@ function pms_contact_write($mail, $text)
 	$mail = str_replace("+++", "", $mail);
 	$text = nl2br(htmlspecialchars($text));
 	$text = str_replace("+++", "", $text);
-	$i = 0;
-	$check = 0;
-	foreach ($text as $text[$i])
-	{
-  		if ($text[$i] == "+")
-  		{
-  			$check++;
-  		}
-  		$i++;
-  	}
-	if ($check >= 3)
-	{
-		return 0;
-	}
-	else
-  	{
-  		$fp = fopen("msg.txt", "a");
-  		$write = $mail . "+++" . $text . "+++" . time() . "\n";
-		if (fwrite($fp, $write))
-		{return 1;}
-		else {return 0;}
-		fclose($fp);
-	}
+  	$fp = fopen("msg.txt", "a");
+  	$write = $mail . "+++" . $text . "+++" . time() . "\n";
+	if (fwrite($fp, $write))
+	{return 1;}
+	else {return 0;}
+	fclose($fp);	
 }
 ?>
