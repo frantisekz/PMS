@@ -3,19 +3,7 @@ DirectoryIndex index.php?page=home
 ErrorDocument 403 /index.php?error=403
 ErrorDocument 404 /index.php?error=404
 
-<Files "admin/msg.txt">
-Order Allow,Deny
-Deny from all
-</Files>
-
-<Files "admin/count.txt">
-Order Allow,Deny
-Deny from all
-</Files>
-
 <Files "config.php">
 Order Allow,Deny
 Deny from all
 </Files>
-
-Options All -Indexes

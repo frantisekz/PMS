@@ -1,0 +1,9 @@
+<Files "msg.txt">
+Order Allow,Deny
+Deny from all
+</Files>
+
+<Files "count.txt">
+Order Allow,Deny
+Deny from all
+</Files>
