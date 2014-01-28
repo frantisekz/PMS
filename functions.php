@@ -70,11 +70,11 @@ function pms_viewcount()
 {
 	if (!isset($_SESSION['count']))
 	{
-		$fp = fopen("count.txt", "r");
+		$fp = fopen("admin/count.txt", "r");
 		$count = fgets($fp, 200);
 		fclose($fp);
 		$count = $count + 1;
-		$fp = fopen("count.txt", "w");
+		$fp = fopen("admin/count.txt", "w");
 		fwrite($fp, $count);
 		fclose($fp);
 		$_SESSION['count'] = 1;
@@ -83,10 +83,10 @@ function pms_viewcount()
 function pms_contact_write($mail, $text)
 {
 	$mail = htmlspecialchars($mail);
-	$mail = str_replace("+++", "", $mail);
+	$mail = str_replace("+++", "#", $mail);
 	$text = nl2br(htmlspecialchars($text));
-	$text = str_replace("+++", "", $text);
-  	$fp = fopen("msg.txt", "a");
+	$text = str_replace("+++", "#", $text);
+  	$fp = fopen("admin/msg.txt", "a");
   	$write = $mail . "+++" . $text . "+++" . time() . "\n";
 	if (fwrite($fp, $write))
 	{return 1;}
