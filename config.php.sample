@@ -1,5 +1,6 @@
 <?php
 // Generic configuration
+$pms_maintenance = "0"; // Set 1 to disable entire website (administration will work)
 $pms_pageauthor = "";
 $pms_pagetitle = "Portfolio Management System - Home";
 $pms_description = "Another cool website using PMS ;)";
@@ -11,8 +12,10 @@ $pms_twitter = "#"; // 0 to disable, otherwise write full twitter url
 $pms_robots = "0"; // 0 to disable search bots access, 1 to enable
 $pms_debug_enabled = "1"; // 1 default, 0 to disable displaying of ALL warnings and errors
 
-//Administration - TODO
+//Administration
+$pms_admin_disabled = "0"; // Set 1 to disable admin account
 $pms_password = "1234"; // Password to access administration
+$pms_language = "en"; // Language for administration
 
 // Style
 $pms_theme = "silver_perfection"; // silver_perfection is the default one
