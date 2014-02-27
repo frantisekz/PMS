@@ -17,7 +17,7 @@ if ($pms_robots == 0)
 <?php
 pms_jquery1();
 pms_lightbox();
-pms_bootstrap30();
+pms_bootstrap31();
 ?>
 <!-- Let IE 8 support html5 -->
 <!--[if lt IE 9]>

@@ -2,7 +2,7 @@
 function pms_jquery1()
 {
 	global $pms_domain;
-	$pms_jquery_1 = "/jquery-1.10.2.min.js";
+	$pms_jquery_1 = "/jquery-1.11.0.min.js";
 	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_jquery_1 . "\"></script>\n";
 	$pms_jquery_called = 1;
 }
@@ -15,12 +15,12 @@ function pms_lightbox()
 	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . $pms_lightbox . "css/lightbox.css\">\n";
 	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_lightbox . "js/lightbox-2.6.min.js\"></script>\n";
 }
-function pms_bootstrap30()
+function pms_bootstrap31()
 {
 	global $pms_domain;
-	$pms_bootstrap30 = "/bootstrap/30/";
-	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . $pms_bootstrap30 . "css/bootstrap.css\">\n";
-	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_bootstrap30 . "js/bootstrap.min.js\"></script>\n";
+	$pms_bootstrap31 = "/bootstrap/31/";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . $pms_bootstrap31 . "css/bootstrap.css\">\n";
+	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_bootstrap31 . "js/bootstrap.min.js\"></script>\n";
 }
 function pms_get_page()
 {
