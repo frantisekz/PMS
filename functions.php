@@ -45,27 +45,16 @@ function pms_get_page()
 		include("pages/home.php");
 	}
 }
-function pms_get_menu() //Obsolete
+function pms_get_pages()
 {
 	global $pms_domain;
 	global $pagename;
-	$pages = array_diff(scandir("pages/"), array('..', '.', 'home.php'));
-	// array_diff puts out "." and ".." on Linux
-	echo "<li "; if($pagename == "home"){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/\">Home</a></li>";
-	foreach($pages as $value) 
-	{
-		$value = str_replace(".php", "", $value);
-		$value[0] = strtoupper($value[0]);
-		$value_low = preg_replace('/\s+/', '', strtolower($value));
-		echo "<li "; if($pagename == $value_low){echo "class=\"active\"";} 
-		echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value_low . "\">" . $value . "</a></li>";
-	}
+	$page_home[0] = "Home.php";
+	$page_others = array_diff(scandir("pages/"), array('..', '.', 'Home.php'));
+	$pages = array_merge($page_home, $page_others);
+	$pages = str_replace(".php", "", $pages);
+	return $pages;
 }
-/*function pms_get_pages()
-	{
-	TODO!
-	}
-*/
 function pms_viewcount()
 {
 	if (!isset($_SESSION['count']))

@@ -32,9 +32,13 @@ pms_bootstrap31();
   </div>
     <div class="navbar">
     <ul class="nav navbar-nav">
-	   <?php
-	    pms_get_menu();
-	   ?>
+	  <?php
+    foreach (pms_get_pages() as $value)
+    {
+      echo "<li "; if($pagename == $value){echo "class=\"active\"";} 
+      echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value . "\">" . $value . "</a></li>";
+    }
+	  ?>
     </ul>
     </div>
 </nav>
