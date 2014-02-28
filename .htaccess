@@ -1,4 +1,4 @@
-DirectoryIndex index.php?page=home
+DirectoryIndex index.php?page=Home
 
 ErrorDocument 403 /index.php?error=403
 ErrorDocument 404 /index.php?error=404
