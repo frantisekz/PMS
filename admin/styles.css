@@ -17,3 +17,7 @@ div.padfix{
 padding-left: 10px;
 padding-right: 10px;
 }
+div.msg_wrap{
+overflow: scroll;
+height: 300px;
+}
