@@ -2,38 +2,41 @@
 function pms_jquery1()
 {
 	global $pms_domain;
-	echo "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
-\n";
-	$pms_jquery_called = 1;
+	echo "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>\n";
+}
+function pms_jquery2()
+{
+	global $pms_domain;
+	echo "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n";
 }
 function pms_lightbox()
 {
 	global $pms_domain;
-	if ((isset($pms_jquery_called)) AND ($pms_jquery_called != 1))
-		{pms_jquery_1();}
-	$pms_lightbox = "/lightbox/";
-	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . $pms_lightbox . "css/lightbox.css\">\n";
-	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_lightbox . "js/lightbox-2.6.min.js\"></script>\n";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . "/lightbox/css/lightbox.css\">\n";
+	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . "/lightbox/js/lightbox-2.6.min.js\"></script>\n";
 }
 function pms_bootstrap3()
 {
 	global $pms_domain;
-	$pms_bootstrap3 = "/bootstrap/3/";
-	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . $pms_bootstrap3 . "css/bootstrap.css\">\n";
-	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . $pms_bootstrap3 . "js/bootstrap.min.js\"></script>\n";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://" . $pms_domain . "/bootstrap/3/css/bootstrap.css\">\n";
+	echo "<script type=\"text/javascript\" src=\"http://" . $pms_domain . "/bootstrap/3/js/bootstrap.min.js\"></script>\n";
 }
+
+
 function pms_get_page()
 {
 	global $page;
 	if (isset($_GET['error']))
 	{
-		if ($_GET['error'] == 404)
-		{
-			echo "Reguested file not found. <br />";
-		}
-		if ($_GET['error'] == 403)
-		{
- 			echo "You aren´t allowed to visit this page. <br />";
+		switch($_GET['error']) {
+			case 404:
+				echo "Reguested file not found. <br />";
+				break;
+			case 403:
+				echo "You aren´t allowed to visit this page. <br />";
+				break;
+			default:
+				echo "Loading this page ended with error " . $_GET['error'] . ".<br />";
 		}
 	}
 	elseif(isset($_GET['page']))
@@ -64,17 +67,14 @@ function pms_get_pages()
 }
 function pms_viewcount()
 {
-	if (!isset($_SESSION['count']))
-	{
-		$fp = fopen("admin/count.txt", "r");
-		$count = fgets($fp, 200);
-		fclose($fp);
-		$count = $count + 1;
-		$fp = fopen("admin/count.txt", "w");
-		fwrite($fp, $count);
-		fclose($fp);
-		$_SESSION['count'] = 1;
-	}
+	$fp = fopen("admin/count.txt", "r");
+	$count = fgets($fp, 200);
+	fclose($fp);
+	$count = $count + 1;
+	$fp = fopen("admin/count.txt", "w");
+	fwrite($fp, $count);
+	fclose($fp);
+
 }
 function pms_contact_write($mail, $text)
 {
