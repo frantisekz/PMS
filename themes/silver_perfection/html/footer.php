@@ -8,6 +8,10 @@ if ($pms_facebook != "0")
   {echo "<a href=\"" . $pms_facebook . "\" target=\"_blank\"><img src=\"themes/" . $pms_theme . "/img/fb.png\" alt=\"Facebook_Icon\"></a> ";}
 if ($pms_twitter != "0")
   {echo "<a href=\"" . $pms_twitter . "\" target=\"_blank\"><img src=\"themes/" . $pms_theme . "/img/twitter.png\" alt=\"Twitter_Icon\"></a> ";}
+$fp = fopen("admin/count.txt", "r");
+$count = fgets($fp, 200);
+fclose($fp);
+echo "<br/>This website is running on <a href=\"https://github.com/frantisekz/PMS\" target=\"_blank\"><strong>PMS</strong></a>. Page visited: " . $count . " times.";
   ?>
   </div>
 <script type="text/javascript">
