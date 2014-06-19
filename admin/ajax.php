@@ -4,6 +4,10 @@ if (isset($_REQUEST['id_helper']))
 {
 	$_SESSION['id'] = $_REQUEST['id_helper'];	
 }
+if (isset($_REQUEST['page_helper']))
+{
+	$_SESSION['page'] = $_REQUEST['page_helper'];	
+}
 
 // Messages
 if (isset($_GET['delete_msg']))
@@ -20,11 +24,21 @@ if (isset($_GET['delete_msg']))
 	file_put_contents("msg.txt", $file);
 	unset($file);
 	$file = fopen("log.txt", "a");
-	$write = "<strong>N:</strong>Tried to delete " . $msgs[$_SESSION['id']] . "+++" . time() . "\n";
+	$write = "<strong>N:</strong>Deleted message " . $msgs[$_SESSION['id']] . "+++" . time() . "\n";
 	fwrite($fp, $write);
 	unset($file);
 	unset($_SESSION['id']);
 }
 // Config
 // Pages
+if (isset($_GET['delete_pg']))
+{
+	$un = $_SESSION['pg'] . ".php";
+	unlink($un);
+	$file = fopen("log.txt", "a");
+	$write = "<strong>N:</strong>Deleted page " . $msgs[$_SESSION['pg']] . "+++" . time() . "\n";
+	fwrite($fp, $write);
+	unset($file);
+	unset($_SESSION['pg']);
+}
 ?>
