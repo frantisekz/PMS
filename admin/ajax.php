@@ -30,15 +30,4 @@ if (isset($_GET['delete_msg']))
 	unset($_SESSION['id']);
 }
 // Config
-// Pages
-if (isset($_GET['delete_pg']))
-{
-	$un = $_SESSION['pg'] . ".php";
-	unlink($un);
-	$file = fopen("log.txt", "a");
-	$write = "<strong>N:</strong>Deleted page " . $msgs[$_SESSION['pg']] . "+++" . time() . "\n";
-	fwrite($fp, $write);
-	unset($file);
-	unset($_SESSION['pg']);
-}
 ?>

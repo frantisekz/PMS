@@ -74,7 +74,7 @@ switch ($_GET['sub']){
 		include('pages.php');
 		break;
 	case "media":
-		include('pages.php');
+		include('media.php');
 		break;
 	case "messages":
 		include('messages.php');
