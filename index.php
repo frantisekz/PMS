@@ -1,8 +1,15 @@
 <?php
+error_reporting(0); // Don't print any php errors on unconfigured site
+
 if(!include("config.php"))
 {
 	die("<h1>Check your config.php!</h1>");
 }
+
+if ($pms_debug_enabled == 1)
+	{
+	error_reporting(3);
+	}
 
 if (isset($_GET['page']))
 	{
@@ -14,11 +21,6 @@ else
 	{
 	$page = "Home.php";
 	$pagename = "Home";
-	}
-
-if ($pms_debug_enabled == 0)
-	{
-	error_reporting(0);
 	}
 
 include("functions.php");
