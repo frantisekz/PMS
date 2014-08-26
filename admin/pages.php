@@ -4,27 +4,45 @@ if (!isset($_SESSION['pass']))
 	die("Unauthorized access!!!");
 }
 
-if (isset($_GET['pgdel']))
+function pms_delete_page($page)
 {
-	$un = "../pages/" . $_GET['pgdel'] . ".php";
-	unlink($un);
-	$file = fopen("log.txt", "a");
-	$write = "<strong>N:</strong>Deleted page " . $msgs[$_GET['pgdel']] . "+++" . time() . "\n";
-	fwrite($file, $write);
-	unset($file);
-	unset($_GET['pgdel']);
+	$un = "../pages/" . $page . ".php";
+	if(unlink($un))
+	{
+		$file = fopen("log.txt", "a");
+		$write = "<strong>N:</strong>Deleted page " . $page . "+++" . time() . "\n";
+		fwrite($file, $write);
+		unset($file);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	unset($un);
 }
 
-if(isset($_GET['pgnew']))
+function pms_new_page($page)
 {
-	$new = "../pages/" . $_GET['pgnew'];
+	$new = "../pages/" . $page;
 	if (file_exists($new))
 	{
 		echo "<strong>Page exists already!</strong><br/>";
 	}
 	else
 	{
-		touch($new);
+		if(touch($new));
+		{
+			$file = fopen("log.txt", "a");
+			$write = "<strong>N:</strong>Created page " . $new . "+++" . time() . "\n";
+			fwrite($file, $write);
+			unset($file);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	unset($new);
 }
