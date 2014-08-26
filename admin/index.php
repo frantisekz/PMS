@@ -2,8 +2,6 @@
 session_start();
 include('../config.php');
 include('../functions.php');
-// include("modals.php");
-// include("ajax.php");
 
 if ((isset($_POST['pass'])) AND ($_POST['pass'] == $pms_password))
 {
@@ -44,7 +42,6 @@ pms_bootstrap3();
 ?>
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" type="text/css" href="styles.css"/>
-<?php include('scripts.php'); ?>
 </head>
 <body>
 <?php
