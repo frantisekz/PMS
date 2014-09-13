@@ -33,9 +33,10 @@ pms_bootstrap3();
     <div class="navbar">
     <ul class="nav navbar-nav">
 	  <?php
+    echo "<li "; if($pagename == "Home"){echo "class=\"active\"";} echo "><a class=\"effect\" href=\"http://" . $pms_domain . "\">Home</a></li>";
     foreach (pms_get_pages() as $value)
     {
-      echo "<li "; if($pagename == $value){echo "class=\"active\"";} 
+      echo "<li "; if($pagename == $value){echo "class=\"active\"";}
       echo "><a class=\"effect\" href=\"http://" . $pms_domain . "/index.php?page=" . $value . "\">" . $value . "</a></li>";
     }
 	  ?>

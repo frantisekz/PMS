@@ -45,23 +45,21 @@ function pms_get_page()
 	}
 	else
 	{
-		include("pages/home.php");
+		include("pages/Home.php");
 	}
 }
 function pms_get_pages()
 {
 	global $pms_domain;
 	global $pagename;
-	$page_home[0] = "Home.php";
 	if (isset($_SESSION['pass']))
 	{
-		$page_others = array_diff(scandir("../pages/"), array('..', '.', 'Home.php'));
+		$pages = array_diff(scandir("../pages/"), array('..', '.', 'Home.php'));
 	}
 	else
 	{
-		$page_others = array_diff(scandir("pages/"), array('..', '.', 'Home.php'));
+		$pages = array_diff(scandir("pages/"), array('..', '.', 'Home.php'));
 	}
-	$pages = array_merge($page_home, $page_others);
 	$pages = str_replace(".php", "", $pages);
 	return $pages;
 }
